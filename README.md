@@ -46,3 +46,14 @@ Customer {
 - Web UI.
 - Swagger
 
+
+
+
+
+## please do this captions
+
+- run docker
+`docker-compose up`
+- run test
+`docker exec -it app php artisan test`
+- upload "openapi" or "mc_crud_test.postman_collection" in your postman
