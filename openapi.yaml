@@ -1,0 +1,392 @@
+openapi: 3.0.0
+info:
+  title: mc_crud_test
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /api/customers:
+    get:
+      tags:
+        - default
+      summary: index
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              schema:
+                type: string
+                example: nginx/1.23.4
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 May 2023 13:17:01 GMT
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '59'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - id: 2
+                  first_name: kamran1
+                  last_name: kamy
+                  date_of_birth: '1990-11-12 00:00:00'
+                  phone_number: '+989168163952'
+                  email: kamran@kamran.pc
+                  bank_account_number: '6250941006528599'
+                  created_at: '2023-05-17T13:14:43.000000Z'
+                  updated_at: '2023-05-17T13:16:05.000000Z'
+    post:
+      tags:
+        - default
+      summary: create
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\r\n    \"first_name\":\"kamran\",\r\n   
+                \"last_name\":\"kamy\",\r\n   
+                \"date_of_birth\":\"1990-11-12\",\r\n   
+                \"phone_number\":\"+989168163952\",\r\n   
+                \"email\":\"kamran@kamran.pc\",\r\n   
+                \"bank_account_number\":\"6250941006528599\"\r\n}"
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              schema:
+                type: string
+                example: nginx/1.23.4
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 May 2023 13:14:43 GMT
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '59'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: success
+  /api/customers/{id}:
+    get:
+      tags:
+        - default
+      summary: show
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              schema:
+                type: string
+                example: nginx/1.23.4
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 May 2023 09:26:49 GMT
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '56'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 1
+                first_name: kamran
+                last_name: kamy
+                date_of_birth: '1990-11-12'
+                phone_number: '+989168163952'
+                email: kamran@kamran.pc
+                bank_account_number: kamran
+                created_at: '2023-05-17T09:26:06.000000Z'
+                updated_at: '2023-05-17T09:26:06.000000Z'
+    put:
+      tags:
+        - default
+      summary: update
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\r\n    \"first_name\":\"kamran1\",\r\n   
+                \"last_name\":\"kamy\",\r\n   
+                \"date_of_birth\":\"1990-11-12\",\r\n   
+                \"phone_number\":\"+989168163952\",\r\n   
+                \"email\":\"kamran@kamran.pc\",\r\n   
+                \"bank_account_number\":\"6250941006528599\"\r\n}"
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              schema:
+                type: string
+                example: nginx/1.23.4
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 May 2023 13:16:05 GMT
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '58'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: success
+    delete:
+      tags:
+        - default
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              schema:
+                type: string
+                example: nginx/1.23.4
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 May 2023 13:17:22 GMT
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '57'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: success
